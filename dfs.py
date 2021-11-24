@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 import sys
-
+from timeit import default_timer as timer
+begin = timer()
 class Node():
     def __init__(self, state, parent, action):
         self.state = state
@@ -115,6 +117,7 @@ class Maze():
         self.num_explored = 0
 
         # Initialize frontier to just the starting position
+        global start
         start = Node(state=self.start, parent=None, action=None)
         frontier = StackFrontier()
         frontier.add(start)
@@ -206,16 +209,24 @@ class Maze():
 
         img.save(filename)
 
+    def printsize(self):
+        output = self.height * self.width
+        return output
+
+    def printneightbors(self):
+        output = self.neighbors(start.state)
+        return len(output)
 
 if len(sys.argv) != 2:
     sys.exit("Usage: python maze.py maze.txt")
 
 m = Maze(sys.argv[1])
-print("Maze:")
-m.release()
-print("Solving...")
 m.solve()
-print("States Explored:", m.num_explored)
-print("Solution:")
-m.release()
 m.output_image("maze.png", show_explored=True)
+end=timer()
+m.release()
+fileinput = end-begin
+computationtimedfs = fileinput
+sizeofmaze = m.printsize()
+initialneighbors = m.printneightbors()
+statesexploreddfs = m.num_explored

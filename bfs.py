@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 import sys
-
+from timeit import default_timer as timer
+begin = timer()
 class Node():
     def __init__(self, state, parent, action):
         self.state = state
@@ -79,8 +81,16 @@ class Maze():
                     print("█", end="")
                 elif (i, j) == self.start:
                     print("A", end="")
+                    global startx
+                    startx = i
+                    global starty
+                    starty = j
                 elif (i, j) == self.goal:
                     print("B", end="")
+                    global goalx
+                    goalx = i
+                    global goaly
+                    goaly = j
                 elif solution is not None and (i, j) in solution:
                     print("*", end="")
                 else:
@@ -112,6 +122,7 @@ class Maze():
         self.num_explored = 0
 
         # Initialize frontier to just the starting position
+        global start
         start = Node(state=self.start, parent=None, action=None)
         frontier = QueueFrontier()
         frontier.add(start)
@@ -203,16 +214,26 @@ class Maze():
 
         img.save(filename)
 
+    def printsize(self):
+        output = self.height * self.width
+        return output
 
+    def printneightbors(self):
+        output = self.neighbors(start.state)
+        return len(output)
+
+    def getmanhattan(self):
+        answer = (abs(goalx-startx) + abs(goaly-starty))
+        return answer
 if len(sys.argv) != 2:
     sys.exit("Usage: python maze.py maze.txt")
 
 m = Maze(sys.argv[1])
-print("Maze:")
-m.release()
-print("Solving...")
 m.solve()
-print("States Explored:", m.num_explored)
-print("Solution:")
-m.release()
 m.output_image("maze.png", show_explored=True)
+end=timer()
+fileinput = end-begin
+m.release()
+manhattandistance = m.getmanhattan()
+computationtimebfs = fileinput
+statesexploredbfs = m.num_explored
