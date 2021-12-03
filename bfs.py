@@ -225,6 +225,8 @@ class Maze():
     def getmanhattan(self):
         answer = (abs(goalx-startx) + abs(goaly-starty))
         return answer
+    def pathlength(self):
+        return len(self.solution[0])
 if len(sys.argv) != 2:
     sys.exit("Usage: python maze.py maze.txt")
 
@@ -237,3 +239,4 @@ m.release()
 manhattandistance = m.getmanhattan()
 computationtimebfs = fileinput
 statesexploredbfs = m.num_explored
+pathlengthbfs = m.pathlength()

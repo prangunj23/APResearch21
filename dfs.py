@@ -216,6 +216,9 @@ class Maze():
     def printneightbors(self):
         output = self.neighbors(start.state)
         return len(output)
+    
+    def pathlength(self):
+        return len(self.solution[0])
 
 if len(sys.argv) != 2:
     sys.exit("Usage: python maze.py maze.txt")
@@ -230,3 +233,4 @@ computationtimedfs = fileinput
 sizeofmaze = m.printsize()
 initialneighbors = m.printneightbors()
 statesexploreddfs = m.num_explored
+pathlengthdfs = m.pathlength()
