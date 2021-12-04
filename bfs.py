@@ -51,6 +51,8 @@ class Maze():
 
         # Keep track of walls
         self.walls = []
+        global counter
+        counter = 0
         for i in range(self.height):
             row = []
             for j in range(self.width):
@@ -65,6 +67,8 @@ class Maze():
                         row.append(False)
                     else:
                         row.append(True)
+                        
+                        counter += 1
                 except IndexError:
                     row.append(False)
             self.walls.append(row)
@@ -227,6 +231,8 @@ class Maze():
         return answer
     def pathlength(self):
         return len(self.solution[0])
+    def numofwalls(self):
+        return counter
 if len(sys.argv) != 2:
     sys.exit("Usage: python maze.py maze.txt")
 
@@ -240,3 +246,4 @@ manhattandistance = m.getmanhattan()
 computationtimebfs = fileinput
 statesexploredbfs = m.num_explored
 pathlengthbfs = m.pathlength()
+numberofwalls = m.numofwalls()
