@@ -6,6 +6,6 @@
  - [x] Literature Review
  - [x] Literature Review Presentation
  - [x] Methods Part 1
- - [] Completed Data Collection
- - [] Methods Part 2
- - [] Methods Presentation 
+ - [ ] Completed Data Collection
+ - [ ] Methods Part 2
+ - [ ] Methods Presentation 
