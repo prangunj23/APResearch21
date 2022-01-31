@@ -6,6 +6,8 @@
  - [x] Literature Review
  - [x] Literature Review Presentation
  - [x] Methods Part 1
- - [ ] Completed Data Collection
+ - [x] Completed Data Collection
+  - Issues
+   - Model producing at max 70% accuracy
  - [ ] Methods Part 2
- - [ ] Methods Presentation 
+ - [x] Methods Presentation 
