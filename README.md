@@ -7,7 +7,9 @@
  - [x] Literature Review Presentation
  - [x] Methods Part 1
  - [x] Completed Data Collection
-  - Issues
-   - Model producing at max 70% accuracy
- - [ ] Methods Part 2
+ - [x] Methods Part 2
  - [x] Methods Presentation 
+ - [x] Abstract
+ - [x] College Board Presentation
+ - [x] Results, Discussion, and Conclusion Sections
+ - [ ] College Board Research Paper Submission
